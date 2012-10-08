@@ -1,9 +1,9 @@
 $(document).ready(function() {
 	/* Search */
-	$('.button-search').bind('click', function() {
+	$('#btn_search').bind('click', function() {
 		url = $('base').attr('href') + 'index.php?route=product/search';
 				 
-		var filter_name = $('input[name=\'filter_name\']').attr('value');
+		var filter_name = $('#inp_search').attr('value');
 		
 		if (filter_name) {
 			url += '&filter_name=' + encodeURIComponent(filter_name);
@@ -12,11 +12,11 @@ $(document).ready(function() {
 		location = url;
 	});
 	
-	$('#header input[name=\'filter_name\']').bind('keydown', function(e) {
+	$('#inp_search').bind('keydown', function(e) {
 		if (e.keyCode == 13) {
 			url = $('base').attr('href') + 'index.php?route=product/search';
 			 
-			var filter_name = $('input[name=\'filter_name\']').attr('value');
+			var filter_name = $('#inp_search').attr('value');
 			
 			if (filter_name) {
 				url += '&filter_name=' + encodeURIComponent(filter_name);
@@ -24,6 +24,18 @@ $(document).ready(function() {
 			
 			location = url;
 		}
+	});
+
+	$('#id_brands').bind('change', function() {
+		url = $('base').attr('href') + 'index.php?route=product/manufacturer/info&manufacturer_id=';
+				 
+		var brand_id = $('#id_brands').attr('value');
+		
+		if (brand_id) {
+			url = url + brand_id;
+		}
+		
+		location = url;
 	});
 	
 	/* Ajax Cart */

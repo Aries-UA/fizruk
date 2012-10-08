@@ -1,5 +1,21 @@
 <?php
 // Version
+
+function debug($var=null, $dumpORprint=true) {
+	$calledFrom = debug_backtrace();
+	echo "<strong>".$calledFrom[0]['file']."</strong>\n";
+	echo " (line <strong>".$calledFrom[0]['line']."</strong>)\n";
+	///
+	echo "<pre>\n";
+	///
+	if ($dumpORprint == true)
+		echo var_dump($var);
+	else
+		echo print_r($var);
+	///
+	echo "</pre>\n";
+}
+
 define('VERSION', '1.5.4');
 
 // Configuration
