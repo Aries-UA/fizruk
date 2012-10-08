@@ -13,7 +13,7 @@ body {
     background: url(../images/body_bg.png) repeat-x;
 }
 
-body a {outline: none;border:none;}
+body a {outline: none;border:none; color: #696969;}
 body img {outline: none;border:none;}
 body ul {margin:0;padding:0;}
 
@@ -266,6 +266,96 @@ input.inp_search {
     color: #2281ac;
     margin: 0px;
     padding: 32px 0 24px 0;
+}
+
+.sort {
+    margin: 0px;
+    padding: 32px 0 0 0;   
+}
+
+#id_sort {
+    margin: 0px;
+    margin: 0 0 14px 20px;
+    border: 1px solid #dadada;
+    width: 100px;
+    height: 26px;
+}
+
+.pagins {
+    margin-top: 20px;
+    width: 100%;
+}
+
+.pagins a {
+    font-size: 16px;
+    margin-left: 6px;
+}
+
+.pag_back, .pag_forward {
+    background-color: #7ca5f3;
+    padding: 10px 12px;
+    text-decoration: none;
+    -moz-border-radius: 8px;
+    -khtml-border-radius: 8px;
+    -webkit-border-radius: 8px;
+    border-radius: 8px;
+    color: #ffffff;
+}
+
+.items {
+    width: 179px;
+    height: 255px;
+    background-color: #f6f6f6;
+    -moz-border-radius: 8px;
+    -khtml-border-radius: 8px;
+    -webkit-border-radius: 8px;
+    border-radius: 8px;
+    float: left;
+    padding-bottom: 6px;
+    margin-bottom: 12px;
+    margin-right: 12px;
+}
+
+.item_image {
+    -moz-border-radius: 8px;
+    -khtml-border-radius: 8px;
+    -webkit-border-radius: 8px;
+    border-radius: 8px;
+    border: 2px solid #e4e4e4;
+    width: 151px;
+    height: 125px;
+    margin-top: 12px;
+    margin-left: 12px;
+}
+
+.item_name {
+    margin: 0px;
+    padding: 16px 0 0 16px;
+}
+
+.item_price {
+    margin: 0px;
+    padding: 14px 0 0 16px;
+    font-size: 16px;
+    color: #4e80a9;
+}
+
+input.btn_item {
+    -moz-border-radius: 6px;
+    -khtml-border-radius: 6px;
+    -webkit-border-radius: 6px;
+    border-radius: 6px;
+    background: url(../images/btn_bg.png) repeat-x;
+    width: 155px;
+    height: 30px;
+    margin-top: 12px;
+    margin-left: 12px;
+    color: #ffffff;
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
 }
 
 
