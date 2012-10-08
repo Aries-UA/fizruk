@@ -1,3 +1,9 @@
 _psd/*
-config_local.php
-admin/config_local.php
+/config_local.php
+/admin/config_local.php
+/cache/*
+/image/cache/*
+/image/data/*
+/webstat/*
+/system/cache/*
+
