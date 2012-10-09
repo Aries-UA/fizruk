@@ -22,6 +22,8 @@ class ControllerModuleCategory extends Controller {
 		} else {
 			$this->data['child_id'] = 0;
 		}
+
+		$this->load->model('catalog/manufacturer');
 							
 		$this->load->model('catalog/category');
 
@@ -62,7 +64,9 @@ class ControllerModuleCategory extends Controller {
 				'href'        => $this->url->link('product/category', 'path=' . $category['category_id'])
 			);	
 		}
-		
+
+		$this->data['manufacturers'] = $this->model_catalog_manufacturer->getManufacturers();
+	
 		if (file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/template/module/category.tpl')) {
 			$this->template = $this->config->get('config_template') . '/template/module/category.tpl';
 		} else {

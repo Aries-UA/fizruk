@@ -1,5 +1,34 @@
-<?php echo $header; ?><?php echo $column_left; ?><?php echo $column_right; ?>
-<div id="content"><?php echo $content_top; ?>
+<?php echo $header; ?>
+<?php echo $column_left; ?>
+<div class="page left">
+    <?php echo $content_top; ?>
+
+    <div class="breadcrumb">
+        <?php foreach ($breadcrumbs as $breadcrumb) { ?>
+            <?php echo $breadcrumb['separator']; ?><a href="<?php echo $breadcrumb['href']; ?>"><?php echo $breadcrumb['text']; ?></a>
+        <?php } ?>
+    </div>
+
+    <h1><?php echo $heading_title; ?></h1>
+
+    <?php if ($thumb || $description) { ?>
+        <div class="category-info">
+            <?php if ($thumb) { ?>
+                <div class="image"><img src="<?php echo $thumb; ?>" alt="<?php echo $heading_title; ?>" /></div>
+            <?php } ?>
+            <?php if ($description) { ?>
+                <?php echo $description; ?>
+            <?php } ?>
+        </div>
+    <?php } ?>
+
+    <?php echo $content_bottom; ?>
+</div>
+
+<?php /* ?>
+<div id="content">
+
+  <?php echo $content_top; ?>
   <div class="breadcrumb">
     <?php foreach ($breadcrumbs as $breadcrumb) { ?>
     <?php echo $breadcrumb['separator']; ?><a href="<?php echo $breadcrumb['href']; ?>"><?php echo $breadcrumb['text']; ?></a>
@@ -199,4 +228,6 @@ if (view) {
 	display('list');
 }
 //--></script> 
+<?php */ ?>
+
 <?php echo $footer; ?>

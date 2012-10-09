@@ -78,39 +78,3 @@
                 <div id="notification"></div>
 
                 <div class="center">
-
-                    <div class="left_sidebar left">
-                        <div class="left_block">
-                            <h1>Категории:</h1>
-                            <ul>
-                                <?php foreach ($categories as $category) { ?>
-                                <li><a href="<?php echo $category['href']; ?>"><?php echo $category['name']; ?></a></li>
-                                    <?php if ($category['children']) { ?>
-                                        <div>
-                                            <?php for ($i = 0; $i < count($category['children']);) { ?>
-                                                <ul>
-                                                    <?php $j = $i + ceil(count($category['children']) / $category['column']); ?>
-                                                    <?php for (; $i < $j; $i++) { ?>
-                                                        <?php if (isset($category['children'][$i])) { ?>
-                                                            <li><a href="<?php echo $category['children'][$i]['href']; ?>"><?php echo $category['children'][$i]['name']; ?></a></li>
-                                                        <?php } ?>
-                                                    <?php } ?>
-                                                </ul>
-                                            <?php } ?>
-                                        </div>
-                                    <?php } ?>    
-                                <?php } ?>
-                            </ul>
-                        </div>
-                        <div class="left_block">
-                            <h1>Бренды:</h1>
-                            <select id="id_brands" name="brands">
-                                <option value="0">Не выбрано</option>
-                                <?php foreach ($manufacturers as $mn) { ?>
-                                    <option value="<?php echo $mn['manufacturer_id']; ?>"><?php echo $mn['name']; ?></option>
-                                <?php } ?>
-                            </select>
-                        </div>
-                    </div>
-
-                    <div class="page left">
