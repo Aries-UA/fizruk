@@ -59,7 +59,7 @@ class ControllerProductCategory extends Controller {
 	       			$this->data['breadcrumbs'][] = array(
    	    				'text'      => $category_info['name'],
 						'href'      => $this->url->link('product/category', 'path=' . $path),
-        				'separator' => $this->language->get('text_separator')
+        				'separator' => '<span>&raquo;</span>'
         			);
 				}
 			}		
@@ -341,7 +341,6 @@ class ControllerProductCategory extends Controller {
 			
 			$this->children = array(
 				'common/column_left',
-				'common/column_right',
 				'common/content_top',
 				'common/content_bottom',
 				'common/footer',
@@ -396,7 +395,6 @@ class ControllerProductCategory extends Controller {
 			
 			$this->children = array(
 				'common/column_left',
-				'common/column_right',
 				'common/content_top',
 				'common/content_bottom',
 				'common/footer',
