@@ -212,6 +212,7 @@ input.inp_search {
 .left_sidebar {
     padding: 14px 16px 14px 16px;
     width: 198px;
+    overflow: hidden;
 }
 
 .left_block {
@@ -268,14 +269,21 @@ input.inp_search {
     padding: 32px 0 24px 0;
 }
 
-.sort {
+.page h2 {
+    font-size: 16px;
+    color: #2281ac;
     margin: 0px;
-    padding: 32px 0 0 0;   
+    padding: 14px 0 12px 0;
 }
 
-#id_sort {
+.sort {
+    margin: 10px 10px 0 0;
+    padding: 0;   
+}
+
+.sel_sort {
     margin: 0px;
-    margin: 0 0 14px 20px;
+    margin: 0 0 14px 0px;
     border: 1px solid #dadada;
     width: 100px;
     height: 26px;
@@ -283,10 +291,11 @@ input.inp_search {
 
 .pagins {
     margin-top: 20px;
+    margin-bottom: 20px;
     width: 100%;
 }
 
-.pagins a {
+.pagins a, .pagins span {
     font-size: 16px;
     margin-left: 6px;
 }
@@ -331,6 +340,7 @@ input.inp_search {
 .item_name {
     margin: 0px;
     padding: 16px 0 0 16px;
+    overflow: hidden;
 }
 
 .item_price {
@@ -338,6 +348,14 @@ input.inp_search {
     padding: 14px 0 0 16px;
     font-size: 16px;
     color: #4e80a9;
+}
+
+.item_price .price-old {
+    text-decoration: line-through;
+}
+
+.item_price .price-new {
+    color: #c74716;
 }
 
 input.btn_item {
@@ -358,6 +376,52 @@ input.btn_item {
     cursor: pointer;
 }
 
+.breadcrumb {
+    padding-top: 18px;
+    margin: 0;
+}
+
+.breadcrumb span {
+    color: #66B7E3;
+    padding: 0 8px 0 4px;
+}
+
+.category-info {
+
+}
+
+.category-info p {
+    margin: 0;
+    padding-bottom: 4px;
+}
+
+.category-info .descr {
+    padding: 10px 0 0 20px;
+    width: 388px;
+}
+
+.category-list {
+
+}
+
+.category-list ul {
+    margin: 0px;
+    list-style-type: square;
+    padding: 0 0 4px 34px;
+    color: #66b7e3;
+}
+
+.category-list ul li {
+    padding : 0px 0 18px 0;
+}
+
+.category-list ul li a {
+    color: #696969;
+}
+
+.product-compare {
+    padding-bottom: 12px;
+}
 
 /*-------------------------*/
 /*--------- Footer --------*/
