@@ -61,7 +61,6 @@ class ControllerProductManufacturer extends Controller {
 		
 		$this->children = array(
 			'common/column_left',
-			'common/column_right',
 			'common/content_top',
 			'common/content_bottom',
 			'common/footer',
@@ -154,6 +153,12 @@ class ControllerProductManufacturer extends Controller {
    			);
 		
 			$this->data['heading_title'] = $manufacturer_info['name'];
+
+			if ($manufacturer_info['image']) {
+				$this->data['thumb'] = $this->model_tool_image->resize($manufacturer_info['image'], $this->config->get('config_image_category_width'), $this->config->get('config_image_category_height'));
+			} else {
+				$this->data['thumb'] = '';
+			}
 			
 			$this->data['text_empty'] = $this->language->get('text_empty');
 			$this->data['text_quantity'] = $this->language->get('text_quantity');
@@ -378,7 +383,6 @@ class ControllerProductManufacturer extends Controller {
 			
 			$this->children = array(
 				'common/column_left',
-				'common/column_right',
 				'common/content_top',
 				'common/content_bottom',
 				'common/footer',
@@ -433,7 +437,6 @@ class ControllerProductManufacturer extends Controller {
 			
 			$this->children = array(
 				'common/column_left',
-				'common/column_right',
 				'common/content_top',
 				'common/content_bottom',
 				'common/footer',

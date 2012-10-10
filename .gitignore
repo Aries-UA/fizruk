@@ -6,4 +6,4 @@ _psd/*
 /image/data/*
 /webstat/*
 /system/cache/*
-
+/system/logs/*

@@ -350,6 +350,14 @@ input.inp_search {
     color: #4e80a9;
 }
 
+.item_price .price-old {
+    text-decoration: line-through;
+}
+
+.item_price .price-new {
+    color: #c74716;
+}
+
 input.btn_item {
     -moz-border-radius: 6px;
     -khtml-border-radius: 6px;
