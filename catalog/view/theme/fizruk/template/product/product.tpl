@@ -14,7 +14,7 @@
     <div class="detail">
 
         <div class="product_images">
-            <a href="<?php echo $popup; ?>" title="<?php echo $heading_title; ?>" rel="colorbox" rel="colorbox">
+            <a href="<?php echo $popup; ?>" title="<?php echo $heading_title; ?>" rel="colorbox">
                 <div class="detail_big_img" style="background: url(<?php echo $thumb; ?>) no-repeat;"></div>
             </a>
             <?php if ($images) { ?>
@@ -216,12 +216,48 @@
                 <b><?php echo $entry_captcha; ?></b><br />
                 <input type="text" name="captcha" value="" />
                 <br />
-                <img src="index.php?route=product/product/captcha" alt="" id="captcha" /><br />
-                <br />
-                <div class="buttons">
-                    <div class="right"><a id="button-review" class="button"><?php echo $button_continue; ?></a></div>
+                <img src="index.php?route=product/product/captcha" alt="" id="captcha" />
+                <div class="right" style="margin-top: 14px;">
+                    <a id="button-review" class="button"><?php echo $button_continue; ?></a>
                 </div>
+                <div class="clear"></div>
             </div>
+        <?php } ?>
+
+        <?php if ($products) { ?>
+        <div id="tab-related" class="tab-content">
+            <?php foreach ($products as $product) { ?>
+                <div class="items">
+                    <a href="<?php echo $product['href']; ?>">
+                        <div class="item_image" style="background: url(<?php echo $product['thumb']; ?>) no-repeat;"></div>
+                    </a>
+                    <p class="item_name">Р<?php echo $product['name']; ?></p>
+                    <?php if (!$product['special']) { ?>
+                        <p class="item_price"><?php echo $product['price']; ?></p>
+                    <?php } else { ?>
+                        <p class="item_price">
+                            <span class="price-old"><?php echo $product['price']; ?></span> 
+                            <span class="price-new"><?php echo $product['special']; ?></span>
+                        </p>
+                    <?php } ?>
+                    <input type="button" class="btn_item" value="Добавить" onclick="addToCart('<?php echo $product['product_id']; ?>');" />
+                </div>
+            <?php } ?>
+            <div class="clear"></div>
+        </div>
+        <?php } ?>
+
+        <?php if ($tags) { ?>
+        <div class="tags">
+            <b><?php echo $text_tags; ?></b>
+            <?php for ($i = 0; $i < count($tags); $i++) { ?>
+                <?php if ($i < (count($tags) - 1)) { ?>
+                    <a href="<?php echo $tags[$i]['href']; ?>"><?php echo $tags[$i]['tag']; ?></a>,
+                <?php } else { ?>
+                    <a href="<?php echo $tags[$i]['href']; ?>"><?php echo $tags[$i]['tag']; ?></a>
+                <?php } ?>
+            <?php } ?>
+        </div>
         <?php } ?>
 
     </div>
@@ -231,167 +267,97 @@
 
 <?php echo $footer; ?>
 
-
-<?php /* ?>
-
-  <div id="tab-description" class="tab-content"><?php echo $description; ?></div>
-  
-  <?php if ($products) { ?>
-  <div id="tab-related" class="tab-content">
-    <div class="box-product">
-      <?php foreach ($products as $product) { ?>
-      <div>
-        <?php if ($product['thumb']) { ?>
-        <div class="image"><a href="<?php echo $product['href']; ?>"><img src="<?php echo $product['thumb']; ?>" alt="<?php echo $product['name']; ?>" /></a></div>
-        <?php } ?>
-        <div class="name"><a href="<?php echo $product['href']; ?>"><?php echo $product['name']; ?></a></div>
-        <?php if ($product['price']) { ?>
-        <div class="price">
-          <?php if (!$product['special']) { ?>
-          <?php echo $product['price']; ?>
-          <?php } else { ?>
-          <span class="price-old"><?php echo $product['price']; ?></span> <span class="price-new"><?php echo $product['special']; ?></span>
-          <?php } ?>
-        </div>
-        <?php } ?>
-        <?php if ($product['rating']) { ?>
-        <div class="rating"><img src="catalog/view/theme/default/image/stars-<?php echo $product['rating']; ?>.png" alt="<?php echo $product['reviews']; ?>" /></div>
-        <?php } ?>
-        <a onclick="addToCart('<?php echo $product['product_id']; ?>');" class="button"><?php echo $button_cart; ?></a></div>
-      <?php } ?>
-    </div>
-  </div>
-  <?php } ?>
-  <?php if ($tags) { ?>
-  <div class="tags"><b><?php echo $text_tags; ?></b>
-    <?php for ($i = 0; $i < count($tags); $i++) { ?>
-    <?php if ($i < (count($tags) - 1)) { ?>
-    <a href="<?php echo $tags[$i]['href']; ?>"><?php echo $tags[$i]['tag']; ?></a>,
-    <?php } else { ?>
-    <a href="<?php echo $tags[$i]['href']; ?>"><?php echo $tags[$i]['tag']; ?></a>
-    <?php } ?>
-    <?php } ?>
-  </div>
-  <?php } ?>
-  <?php echo $content_bottom; ?></div>
 <script type="text/javascript"><!--
-$('.colorbox').colorbox({
-	overlayClose: true,
-	opacity: 0.5
+$("a[rel='colorbox']").colorbox({
+    overlayClose: true,
+    opacity: 0.5
 });
 //--></script> 
+
 <script type="text/javascript"><!--
 $('#button-cart').bind('click', function() {
-	$.ajax({
-		url: 'index.php?route=checkout/cart/add',
-		type: 'post',
-		data: $('.product-info input[type=\'text\'], .product-info input[type=\'hidden\'], .product-info input[type=\'radio\']:checked, .product-info input[type=\'checkbox\']:checked, .product-info select, .product-info textarea'),
-		dataType: 'json',
-		success: function(json) {
-			$('.success, .warning, .attention, information, .error').remove();
-			
-			if (json['error']) {
-				if (json['error']['option']) {
-					for (i in json['error']['option']) {
-						$('#option-' + i).after('<span class="error">' + json['error']['option'][i] + '</span>');
-					}
-				}
-			} 
-			
-			if (json['success']) {
-				$('#notification').html('<div class="success" style="display: none;">' + json['success'] + '<img src="catalog/view/theme/default/image/close.png" alt="" class="close" /></div>');
-					
-				$('.success').fadeIn('slow');
-					
-				$('#cart-total').html(json['total']);
-				
-				$('html, body').animate({ scrollTop: 0 }, 'slow'); 
-			}	
-		}
-	});
+    $.ajax({
+        url: 'index.php?route=checkout/cart/add',
+        type: 'post',
+        data: $('.product_detail input[type=\'text\'], .product_detail input[type=\'hidden\'], .product_detail input[type=\'radio\']:checked, .product_detail input[type=\'checkbox\']:checked, .product_detail select, .product_detail textarea'),
+        dataType: 'json',
+        success: function(json) {
+            $('.success, .warning, .attention, information, .error').remove();
+            
+            if (json['error']) {
+                if (json['error']['option']) {
+                    for (i in json['error']['option']) {
+                        $('#option-' + i).after('<span class="error">' + json['error']['option'][i] + '</span>');
+                    }
+                }
+            } 
+            
+            if (json['success']) {
+                $('#notification').html('<div class="success" style="display: none;">' + json['success'] + '<img src="catalog/view/theme/default/image/close.png" alt="" class="close" /></div>');
+                    
+                $('.success').fadeIn('slow');
+                    
+                $('#headerCartData').html(json['total']);
+                
+                $('html, body').animate({ scrollTop: 0 }, 'slow'); 
+            }   
+        }
+    });
 });
 //--></script>
-<?php if ($options) { ?>
-<script type="text/javascript" src="catalog/view/javascript/jquery/ajaxupload.js"></script>
-<?php foreach ($options as $option) { ?>
-<?php if ($option['type'] == 'file') { ?>
-<script type="text/javascript"><!--
-new AjaxUpload('#button-option-<?php echo $option['product_option_id']; ?>', {
-	action: 'index.php?route=product/product/upload',
-	name: 'file',
-	autoSubmit: true,
-	responseType: 'json',
-	onSubmit: function(file, extension) {
-		$('#button-option-<?php echo $option['product_option_id']; ?>').after('<img src="catalog/view/theme/default/image/loading.gif" class="loading" style="padding-left: 5px;" />');
-		$('#button-option-<?php echo $option['product_option_id']; ?>').attr('disabled', true);
-	},
-	onComplete: function(file, json) {
-		$('#button-option-<?php echo $option['product_option_id']; ?>').attr('disabled', false);
-		
-		$('.error').remove();
-		
-		if (json['success']) {
-			alert(json['success']);
-			
-			$('input[name=\'option[<?php echo $option['product_option_id']; ?>]\']').attr('value', json['file']);
-		}
-		
-		if (json['error']) {
-			$('#option-<?php echo $option['product_option_id']; ?>').after('<span class="error">' + json['error'] + '</span>');
-		}
-		
-		$('.loading').remove();	
-	}
-});
-//--></script>
-<?php } ?>
-<?php } ?>
-<?php } ?>
+
 <script type="text/javascript"><!--
 $('#review .pagination a').live('click', function() {
-	$('#review').fadeOut('slow');
-		
-	$('#review').load(this.href);
-	
-	$('#review').fadeIn('slow');
-	
-	return false;
-});			
+    $('#review').fadeOut('slow');
+        
+    $('#review').load(this.href);
+    
+    $('#review').fadeIn('slow');
+    
+    return false;
+});         
 
 $('#review').load('index.php?route=product/product/review&product_id=<?php echo $product_id; ?>');
 
 $('#button-review').bind('click', function() {
-	$.ajax({
-		url: 'index.php?route=product/product/write&product_id=<?php echo $product_id; ?>',
-		type: 'post',
-		dataType: 'json',
-		data: 'name=' + encodeURIComponent($('input[name=\'name\']').val()) + '&text=' + encodeURIComponent($('textarea[name=\'text\']').val()) + '&rating=' + encodeURIComponent($('input[name=\'rating\']:checked').val() ? $('input[name=\'rating\']:checked').val() : '') + '&captcha=' + encodeURIComponent($('input[name=\'captcha\']').val()),
-		beforeSend: function() {
-			$('.success, .warning').remove();
-			$('#button-review').attr('disabled', true);
-			$('#review-title').after('<div class="attention"><img src="catalog/view/theme/default/image/loading.gif" alt="" /> <?php echo $text_wait; ?></div>');
-		},
-		complete: function() {
-			$('#button-review').attr('disabled', false);
-			$('.attention').remove();
-		},
-		success: function(data) {
-			if (data['error']) {
-				$('#review-title').after('<div class="warning">' + data['error'] + '</div>');
-			}
-			
-			if (data['success']) {
-				$('#review-title').after('<div class="success">' + data['success'] + '</div>');
-								
-				$('input[name=\'name\']').val('');
-				$('textarea[name=\'text\']').val('');
-				$('input[name=\'rating\']:checked').attr('checked', '');
-				$('input[name=\'captcha\']').val('');
-			}
-		}
-	});
+    $.ajax({
+        url: 'index.php?route=product/product/write&product_id=<?php echo $product_id; ?>',
+        type: 'post',
+        dataType: 'json',
+        data: 'name=' + encodeURIComponent($('input[name=\'name\']').val()) + '&text=' + encodeURIComponent($('textarea[name=\'text\']').val()) + '&rating=' + encodeURIComponent($('input[name=\'rating\']:checked').val() ? $('input[name=\'rating\']:checked').val() : '') + '&captcha=' + encodeURIComponent($('input[name=\'captcha\']').val()),
+        beforeSend: function() {
+            $('.success, .warning').remove();
+            $('#button-review').attr('disabled', true);
+            $('#review-title').after('<div class="attention"><img src="catalog/view/theme/default/image/loading.gif" alt="" /> <?php echo $text_wait; ?></div>');
+        },
+        complete: function() {
+            $('#button-review').attr('disabled', false);
+            $('.attention').remove();
+        },
+        success: function(data) {
+            if (data['error']) {
+                $('#review-title').after('<div class="warning">' + data['error'] + '</div>');
+            }
+            
+            if (data['success']) {
+                $('#review-title').after('<div class="success">' + data['success'] + '</div>');
+                                
+                $('input[name=\'name\']').val('');
+                $('textarea[name=\'text\']').val('');
+                $('input[name=\'rating\']:checked').attr('checked', '');
+                $('input[name=\'captcha\']').val('');
+            }
+        }
+    });
 });
 //--></script> 
+
+<script type="text/javascript"><!--
+    $('#tabs a').tabs();
+//--></script> 
+
+<?php /* ?>
+
 <script type="text/javascript"><!--
 $('#tabs a').tabs();
 //--></script> 

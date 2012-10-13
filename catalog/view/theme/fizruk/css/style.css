@@ -48,7 +48,7 @@ body ul {margin:0;padding:0;}
 }
 
 .header_cart {
-    margin-left: 130px;
+    margin-left: 120px;
     width: 239px;
     height: 73px;
     padding-top: 21px;
@@ -61,8 +61,27 @@ body ul {margin:0;padding:0;}
     margin: 12px 0 0 12px;
 }
 
-#headerCart {
-    margin: 18px 0 0 12px;
+#headerCartData {
+    margin: 18px 0 0 10px;
+}
+
+#cartContent {
+    display: none;
+    position: absolute;
+    top: 34px;
+    left: -143px;
+    z-index: 1000;
+    -moz-border-radius: 8px;
+    -khtml-border-radius: 8px;
+    -webkit-border-radius: 8px;
+    border-radius: 8px;
+    border: 1px solid #d3d3d3;
+    margin: 0;
+    padding: 10px;
+    background-color: #f6f6f6;
+    min-width: 200px; 
+    min-height: 24px;
+    color: #696969;
 }
 
 input.show_cart {
@@ -73,8 +92,32 @@ input.show_cart {
     border: none;
     cursor: pointer;
     width: 22px;
-    height: 12px;
-    margin: 2px 14px 0 0;
+    height: 17px;
+    margin: 16px 0 0 8px;
+}
+
+.total {
+    margin: 0 18px 18px 0;
+}
+
+.checkout {
+    margin: 0 0 12px 0;
+}
+
+.td_quantity {
+    padding: 0 0 0 6px;
+}
+
+.td_remove {
+    padding: 0 20px 0 20px;
+}
+
+.td_separator {
+    padding: 0 6px 0 6px;
+}
+
+.td_name {
+    min-width: 200px;
 }
 
 input.btn_search {
@@ -98,6 +141,7 @@ input.inp_search {
 
 .separator_1 {
     padding-top: 48px;
+    padding-left: 20px;
     background: url(../images/separator_1.png) no-repeat center center;
     width: 3px;
     height: 73px;
@@ -106,7 +150,7 @@ input.inp_search {
 .search_wrapper {
     width: 258px;
     height: 73px;
-    padding: 29px 0 0 20px;
+    padding: 29px 0 0 0px;
 }
 
 .search {
@@ -154,6 +198,26 @@ input.inp_search {
     width: 821px;
     position: relative;
     margin: 0px auto;
+}
+
+#notification {
+    width: 100%;
+    text-align: center;
+    font-weight: bold;
+}
+
+.success {
+    padding: 14px 0 4px 0;
+    color: #2281ac;
+}
+
+.error {
+    padding: 14px 0 4px 0;
+    color: #2281ac;
+}
+
+.close {
+    padding-left: 12px;
 }
 
 /*-------------------------*/
@@ -550,7 +614,7 @@ input.btn_item {
     color: #c74716 !important;
 }
 
-.tab-content {
+.tab-content, .tags {
     background-color: #f6f6f6;
     width: 556px;
     min-height: 50px;
@@ -603,6 +667,33 @@ a.ahtabs.selected {
 
 .tab-content ul {
     margin-left: 14px;
+}
+
+.tab-content input[type=text], .tab-content textarea {
+    border: 1px solid #d9d9d9;
+    height: 24px;
+    margin: 6px 0 6px 0;
+}
+
+.tab-content textarea {
+    min-height: 90px;
+}
+
+a.button {
+    -moz-border-radius: 6px;
+    -khtml-border-radius: 6px;
+    -webkit-border-radius: 6px;
+    border-radius: 6px;
+    background: url(../images/btn_bg.png) repeat-x;
+    color: #ffffff;
+    padding: 6px 30px 6px 30px;
+    text-align: center;
+    border: none;
+}
+
+.tags {
+    border-radius: 8px;
+    min-height: 24px;
 }
 
 /*-------------------------*/

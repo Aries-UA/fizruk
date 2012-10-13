@@ -33,7 +33,9 @@
                 <a href="/" class="logo left">
                     <img src="catalog/view/theme/fizruk/images/logo.png" alt="" />
                 </a>
-                <?php echo $cart; ?>
+                <div id="headerCart">
+                    <?php echo $cart; ?>
+                </div>
                 <div class="separator_1 left"></div>
                 <div class="search_wrapper left">
                     <div class="search">
