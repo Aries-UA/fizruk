@@ -27,7 +27,7 @@ $_['column_image']    = 'Фото';
 $_['column_name']     = 'Название товара';
 $_['column_model']    = 'Модель';
 $_['column_quantity'] = 'Количество';
-$_['column_price']    = 'Цена за единицу товара';
+$_['column_price']    = 'Цена за ед.';
 $_['column_total']    = 'Итого';
 
 // Entry

@@ -211,9 +211,9 @@ input.inp_search {
     color: #2281ac;
 }
 
-.error {
+.error, .warning {
     padding: 14px 0 4px 0;
-    color: #2281ac;
+    color: red;
 }
 
 .close {
@@ -245,6 +245,7 @@ input.inp_search {
     font-weight: bold;
     float: left;
     padding-top: 5px;
+    text-decoration: none;
 }
 
 .menu .top_menu .delim_menu {
@@ -669,13 +670,13 @@ a.ahtabs.selected {
     margin-left: 14px;
 }
 
-.tab-content input[type=text], .tab-content textarea {
+.page input[type=text], .page textarea {
     border: 1px solid #d9d9d9;
     height: 24px;
     margin: 6px 0 6px 0;
 }
 
-.tab-content textarea {
+.page textarea {
     min-height: 90px;
 }
 
@@ -689,11 +690,48 @@ a.button {
     padding: 6px 30px 6px 30px;
     text-align: center;
     border: none;
+    display: block;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+input.button {
+    -moz-border-radius: 6px;
+    -khtml-border-radius: 6px;
+    -webkit-border-radius: 6px;
+    border-radius: 6px;
+    background: url(../images/btn_bg.png) repeat-x;
+    color: #ffffff;
+    padding: 6px 10px 6px 10px;
+    text-align: center;
+    border: none;
+    text-decoration: none;
+    cursor: pointer;
 }
 
 .tags {
     border-radius: 8px;
     min-height: 24px;
+}
+
+.page table {
+    border-spacing: 0;
+    width: 100%;
+}
+
+.page table th {
+    font-size: 10px;
+    background-color: #e9e9e9;
+    padding: 12px 6px 12px 6px;
+}
+
+.page table td {
+    padding: 6px 0 6px 2px;
+}
+
+.checkout_qty {
+    width: 26px;
+    padding-left: 4px;
 }
 
 /*-------------------------*/
