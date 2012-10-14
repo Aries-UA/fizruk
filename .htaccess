@@ -15,6 +15,8 @@ Options -Indexes
  Deny from all
 </FilesMatch>
 
+RewriteRule \.git - [F,L]
+
 # SEO URL Settings
 RewriteEngine On
 # If your opencart installation does not run on the main web folder make sure you folder it does run in ie. / becomes /shop/ 
