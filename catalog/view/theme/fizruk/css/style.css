@@ -585,7 +585,7 @@ input.btn_item {
     background: url(../images/btn_bg.png) repeat-x;
     width: 130px;
     height: 30px;
-    margin-top: -1px;
+    margin-top: 5px;
     margin-left: 12px;
     color: #ffffff;
     display: block;
@@ -670,7 +670,7 @@ a.ahtabs.selected {
     margin-left: 14px;
 }
 
-.page input[type=text], .page textarea {
+.page input[type=text], .page input[type=password], .page textarea {
     border: 1px solid #d9d9d9;
     height: 24px;
     margin: 6px 0 6px 0;
