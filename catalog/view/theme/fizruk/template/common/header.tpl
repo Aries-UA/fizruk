@@ -67,13 +67,13 @@
             <div class="content">
                 <div class="menu">
                     <div class="top_menu">
-                        <a href="">Главная</a>
+                        <a href="/">Главная</a>
                         <div class="delim_menu"></div>
-                        <a href="">Оплата и доставка</a>
+                        <a href="/index.php?route=information/information&information_id=6">Оплата и доставка</a>
                         <div class="delim_menu"></div>
-                        <a href="">О Компании</a>
+                        <a href="/index.php?route=information/information&information_id=4">О Компании</a>
                         <div class="delim_menu"></div>
-                        <a href="">Обратная связь</a>
+                        <a href="/index.php?route=information/contact">Обратная связь</a>
                     </div>
                 </div>
 

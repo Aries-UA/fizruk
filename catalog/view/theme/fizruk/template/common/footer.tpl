@@ -6,13 +6,13 @@
         <div class="footer_bg">
             <div class="footer">
                 <div class="foot_menu left">
-                    <a href="">Главная</a>
+                    <a href="/">Главная</a>
                     <em class="delim_footer">|</em>
-                    <a href="">Оплата и доставка</a>
+                    <a href="/index.php?route=information/information&information_id=6">Оплата и доставка</a>
                     <em class="delim_footer">|</em>
-                    <a href="">О Компании</a>
+                    <a href="/index.php?route=information/information&information_id=4">О Компании</a>
                     <em class="delim_footer">|</em>
-                    <a href="">Обратная связь</a>
+                    <a href="/index.php?route=information/contact">Обратная связь</a>
                 </div>
                 <div class="copyright right">
                     Все права защищены &copy; 2011-2012
