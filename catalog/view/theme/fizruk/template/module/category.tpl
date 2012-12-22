@@ -3,12 +3,30 @@
     <ul>
         <?php foreach ($categories as $category) { ?>
             <li>
-                <a href="<?php echo $category['href']; ?>"><?php echo $category['name']; ?></a>
+                <?php 
+                    $style = '';
+                    $style_ul = 'style="display: none;"';
+                    if ($category['category_id'] == $category_id) {
+                        $style = 'style="font-weight: bold;"';
+                        $style_ul = '';
+                    } 
+                ?>
+                <a href="<?php echo $category['href']; ?>" <?php echo $style; ?>>
+                    <?php echo $category['name']; ?>
+                </a>
                 <?php if ($category['children']) { ?>
-                    <ul>
+                    <ul <?php echo $style_ul; ?>>
                         <?php foreach ($category['children'] as $child) { ?>
+                            <?php 
+                                $style = '';
+                                if ($child['category_id'] == $child_id) {
+                                    $style = 'style="font-weight: bold;"';
+                                }
+                            ?>
                             <li>
-                                <a href="<?php echo $child['href']; ?>"><?php echo $child['name']; ?></a>
+                                <a href="<?php echo $child['href']; ?>" <?php echo $style; ?>>
+                                    <?php echo $child['name']; ?>
+                                </a>
                             </li>
                         <?php } ?>
                     </ul>

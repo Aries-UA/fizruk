@@ -152,7 +152,7 @@ class ControllerProductCategory extends Controller {
 			$product_total = $this->model_catalog_product->getTotalProducts($data); 
 			
 			$results = $this->model_catalog_product->getProducts($data);
-			
+
 			foreach ($results as $result) {
 				if ($result['image']) {
 					$image = $this->model_tool_image->resize($result['image'], $this->config->get('config_image_product_width'), $this->config->get('config_image_product_height'));
@@ -187,6 +187,7 @@ class ControllerProductCategory extends Controller {
 				$this->data['products'][] = array(
 					'product_id'  => $result['product_id'],
 					'thumb'       => $image,
+					'manufacturer'=> $result['manufacturer'],
 					'name'        => $result['name'],
 					'description' => utf8_substr(strip_tags(html_entity_decode($result['description'], ENT_QUOTES, 'UTF-8')), 0, 100) . '..',
 					'price'       => $price,
@@ -346,7 +347,7 @@ class ControllerProductCategory extends Controller {
 				'common/footer',
 				'common/header'
 			);
-				
+
 			$this->response->setOutput($this->render());										
     	} else {
 			$url = '';

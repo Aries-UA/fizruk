@@ -10,7 +10,7 @@ class ControllerModuleCategory extends Controller {
 		} else {
 			$parts = array();
 		}
-		
+
 		if (isset($parts[0])) {
 			$this->data['category_id'] = $parts[0];
 		} else {

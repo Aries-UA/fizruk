@@ -402,10 +402,15 @@ input.inp_search {
     margin-left: 12px;
 }
 
-.item_name {
+.item_name, .item_manufacturer {
     margin: 0px;
     padding: 16px 0 0 16px;
     overflow: hidden;
+}
+
+.item_manufacturer {
+    font-weight: bold;
+    font-size: 12px;
 }
 
 .item_price {
