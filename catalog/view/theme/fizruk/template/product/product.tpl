@@ -231,7 +231,8 @@
                     <a href="<?php echo $product['href']; ?>">
                         <div class="item_image" style="background: url(<?php echo $product['thumb']; ?>) no-repeat;"></div>
                     </a>
-                    <p class="item_name">Р<?php echo $product['name']; ?></p>
+                    <p class="item_manufacturer"><?php echo $product['manufacturer']; ?></p>
+                    <p class="item_name"><?php echo $product['name']; ?></p>
                     <?php if (!$product['special']) { ?>
                         <p class="item_price"><?php echo $product['price']; ?></p>
                     <?php } else { ?>

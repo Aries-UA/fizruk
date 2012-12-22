@@ -104,6 +104,13 @@ input.show_cart {
     margin: 0 0 12px 0;
 }
 
+.checkout a {
+    margin-left: 20px;
+    color: #2281AC;
+    text-transform: lowercase;
+    font-size: 12px;
+}
+
 .td_quantity {
     padding: 0 0 0 6px;
 }
@@ -378,7 +385,7 @@ input.inp_search {
 
 .items {
     width: 179px;
-    height: 255px;
+    height: 270px;
     background-color: #f6f6f6;
     -moz-border-radius: 8px;
     -khtml-border-radius: 8px;
@@ -402,15 +409,18 @@ input.inp_search {
     margin-left: 12px;
 }
 
-.item_name, .item_manufacturer {
+.item_name {
     margin: 0px;
-    padding: 16px 0 0 16px;
+    padding: 4px 0 0 16px;
     overflow: hidden;
 }
 
 .item_manufacturer {
     font-weight: bold;
     font-size: 12px;
+    margin: 0px;
+    padding: 12px 0 0 16px;
+    overflow: hidden;
 }
 
 .item_price {
@@ -804,3 +814,9 @@ input.button {
 .footer .foot_menu a {
     color: #ffffff;
 }
+
+#payment-existing {
+    width: 554px;
+    height: 38px;
+}
+
